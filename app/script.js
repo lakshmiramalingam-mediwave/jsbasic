@@ -51,7 +51,7 @@ let movielist = [
     title: "raataan LAMBIYAN",
 
     categories: "HINDI",
-  },git push -u origin main
+  },
   {
     id: "11",
     title: " THE KISSING BOOTH",
@@ -61,6 +61,12 @@ let movielist = [
   {
     id: "12",
     title: "ELEPHANT WHISPER",
+
+    categories: "TAMIL ",
+  },
+  {
+    id: "13",
+    title: "3",
 
     categories: "TAMIL ",
   },
@@ -92,12 +98,11 @@ function makemoviediv(movie) {
 
   return div;
 }
-// append child
 function appendtoappwrap(m) {
   const app = document.querySelector("#appwrap");
   app.appendChild(m);
 }
-// loop 
+
 for (let i = 0; i < movielist.length; i++) {
   let moviediv = makemoviediv(movielist[i]);
   appendtoappwrap(moviediv);
