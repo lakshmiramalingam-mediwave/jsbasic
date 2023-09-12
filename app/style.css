@@ -1,10 +1,11 @@
 body{
     font-family: Verdana, Geneva, Tahoma, sans-serif;
 }
-#appwrap{
+#app{
     display: grid;
-    grid-template-columns: auto auto auto;
-    border: 3px solid black;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap:20px;
+ padding: 20px;
 
 }
 .movie-card{
@@ -15,8 +16,27 @@ body{
     margin-right:50px;
     margin-bottom:30px;
     background-color:darkgrey;
+    text-align: center;
 
 }  
-.movie-card{
-    text-align: center;
+.movie-card button{
+    font-size:20px;
+    background-color: black;
+    color:blanchedalmond;
+    margin-bottom:15px;
+}
+@media (max-width: 768px) {
+    #app{
+        grid-template-columns: 1fr 1fr 1fr;
+    }
+}
+@media (max-width: 480px) {
+    #app{
+        grid-template-columns: 1fr 1fr;
+    }
+}
+@media (max-width: 320px) {
+    #app{
+        grid-template-columns: 1fr;
+    }
 }

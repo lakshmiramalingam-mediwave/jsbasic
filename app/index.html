@@ -7,7 +7,29 @@
     <link rel="stylesheet" href="style.css" />
   </head>
   <body>
-    <div id="appwrap"></div>
+    <form id="add-movie-form" method="post" action="/">
+      <label for="movie-name">Movie Name</label>
+      <input
+        type="text"
+        name="movie-name"
+        placeholder="Enter movie name"
+        id="movie-name"
+        required
+      />
+
+      <label for="movie-year"> Movie year</label>
+      <input
+        type="number"
+        name="movie-year"
+        placeholder="Enter movie year"
+        id="movie-year"
+        required
+      />
+
+      <input type="submit" value="Add movie" />
+    </form>
+
+    <div id="app"></div>
     <script src="script.js"></script>
   </body>
 </html>
