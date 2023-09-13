@@ -40,3 +40,7 @@ body{
         grid-template-columns: 1fr;
     }
 }
+#add-movie-form{
+    text-align: center;
+    margin-top:80px;
+}

@@ -98,14 +98,23 @@ function makeMovieDiv(movie) {
     button.addEventListener("click", function () {
       const newTitle = document.querySelector(`#edit-${movie.id}-name`).value;
       const newYear = document.querySelector(`#edit-${movie.id}-year`).value;
-
-      const toUpdateIndex = favMovies.findIndex((m) => m.id == movie.id);
-      if (toUpdateIndex != -1) {
-        favMovies[toUpdateIndex]["title"] = newTitle;
-        favMovies[toUpdateIndex]["releaseDate"] = newYear;
-        favMovies[toUpdateIndex]["isEdit"] = false;
-        updateMovieListUI();
-        saveToLocalStorage();
+      if (!newTitle || !newYear) {
+        alert("Enter all fields");
+      } else {
+        if (newYear > new Date().getFullYear()) {
+          alert("enter correct year");
+        } else if (newYear < 1895) {
+          alert("enter correct year");
+        } else {
+          const toUpdateIndex = favMovies.findIndex((m) => m.id == movie.id);
+          if (toUpdateIndex != -1) {
+            favMovies[toUpdateIndex]["title"] = newTitle;
+            favMovies[toUpdateIndex]["releaseDate"] = newYear;
+            favMovies[toUpdateIndex]["isEdit"] = false;
+            updateMovieListUI();
+            saveToLocalStorage();
+          }
+        }
       }
     });
 
@@ -198,14 +207,17 @@ function hookForm() {
     e.preventDefault();
     const name = document.querySelector("#movie-name").value;
     const year = document.querySelector("#movie-year").value;
-
-    const movie = {
-      id: new Date().getTime(),
-      title: name,
-      releaseDate: year,
-      isEdit: false,
-    };
-    addMovie(movie);
+    if (year <= 2023 && year >= 1500) {
+      const movie = {
+        id: new Date().getTime(),
+        title: name,
+        releaseDate: year,
+        isEdit: false,
+      };
+      addMovie(movie);
+    } else {
+      alert("not valid");
+    }
   });
 }
 
