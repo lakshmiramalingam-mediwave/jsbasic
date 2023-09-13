@@ -166,6 +166,7 @@ function removeMovie(movieId) {
   const filteredArray = favMovies.filter((movie) => movie.id != movieId);
   favMovies = filteredArray;
   updateMovieListUI();
+  saveToLocalStorage();
 }
 
 function editMovie(movieId) {
@@ -216,7 +217,7 @@ function hookForm() {
       };
       addMovie(movie);
     } else {
-      alert("not valid");
+      alert("not valid movie year");
     }
   });
 }
